@@ -7,7 +7,7 @@ import {
 
 const msalConfig: Configuration = {
   auth: {
-    clientId: 'VUE_APP_MSAL_CLIENT_ID',
+    clientId: 'd47f77e4-ba30-44fb-bd27-15e7911edd8a',
     authority:
       "https://ariqtlearning.b2clogin.com/ariqtlearning.onmicrosoft.com/B2C_1_signInandSignUp",
     knownAuthorities: ["ariqtlearning.b2clogin.com"],

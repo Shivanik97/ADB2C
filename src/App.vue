@@ -1,38 +1,18 @@
 <template>
-  <button v-if="isLoggedIn" @click="logOut">Log Out</button>
-  <button v-else @click="logIn">Log In</button>
+  <LoginView/>
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
-import {msalInstance}from "./services/msal";
-import {AuthError} from "@azure/msal-browser";
+import { Options, Vue } from 'vue-class-component';
+import LoginView from './components/LoginView.vue'
+
 @Options({
   components: {
-    HelloWorld,
+    LoginView
   },
 })
 export default class App extends Vue {
-  isLoggedIn = false;
-  async logIn() {
-    try {
-      await msalInstance.loginPopup();
-      this.isLoggedIn = true;
-    } catch (err) {
-      const authErr = err as AuthError;
-      if (authErr) {
-        if (authErr.errorCode == "user_cancelled") {
-          return;
-        }
-      }
-      console.error({err});
-    }
-  }
-  async logOut() {
-    await msalInstance.logoutPopup();
-    this.isLoggedIn = false;
-  }
+  
 }
 </script>
 
